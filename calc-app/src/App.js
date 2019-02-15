@@ -21,7 +21,6 @@ class App extends Component {
           >
             Learn React
           </a>
-        <body className="App-body">
 
     );
   }
