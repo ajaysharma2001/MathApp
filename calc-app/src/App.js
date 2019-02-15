@@ -9,8 +9,9 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
             <br/>Kelloo motheryuckerssssss!!!!!!!
+            <br/>Welcome to THE BIG DICK ENERGY SITE!
+            <br/>Here you are able to witness the power of Anu's micropeen 8=======D
           </p>
           <a
             className="App-link"
