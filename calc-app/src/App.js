@@ -11,7 +11,7 @@ class App extends Component {
           <p>
             <br/>Kelloo motheryuckerssssss!!!!!!!
             <br/>Oh really
-            <br/>Here you are able to witness the power of Anu's micropeen 8=======D
+            <br/>Here you are able to witness the power of Anu's micropeen 8======D
           </p>
           <a
             className="App-link"
