@@ -22,6 +22,9 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <body className="App-body">
+        
+        </body>
       </div>
     );
   }
