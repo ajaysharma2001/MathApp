@@ -8,10 +8,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          
           <p>
             <br/>Kelloo motheryuckerssssss!!!!!!!
-            <br/>Oh really
-            <br/>
+            <br/>O Rlly        
           </p>
           <a
             className="App-link"
@@ -22,9 +22,6 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <body className="App-body">
-        
-        </body>
       </div>
     );
   }
