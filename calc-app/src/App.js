@@ -10,7 +10,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             <br/>Kelloo motheryuckerssssss!!!!!!!
-            <br/>Welcome to THE BIG DICK ENERGY SITE!
+            <br/>Oh really
             <br/>Here you are able to witness the power of Anu's micropeen 8=======D
           </p>
           <a
