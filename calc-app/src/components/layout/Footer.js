@@ -3,7 +3,7 @@ import React from 'react'
 export default function Footer() {
   return (
     <footer style ={footerStyle}>
-      <footer>Created By: Ajay Sharma, Anupryium (Last Name), Neel Shah, Aatman Shah</footer>
+      <footer>Created By: Ajay Sharma, Anupriyam Ranjit, Neel Shah, Aatman Shah</footer>
     </footer>
   )
 }
