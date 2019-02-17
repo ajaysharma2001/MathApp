@@ -16,7 +16,7 @@ function getData(min, max, step, length, width) {
 export default function Graph() {
   return (
     <div>
-      <LineChart data={getData(0, 30, 0.1, 30, 60)}/>
+      <LineChart data={getData(0, 30, 0.1, 30, 60)} width={50} height={50}/>
     </div>
   )
 }
