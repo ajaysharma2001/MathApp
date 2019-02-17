@@ -1,4 +1,5 @@
 import {LineChart} from 'react-easy-chart';
+import {ScatterplotChart} from 'react-easy-chart';
 import React from 'react'
 
 function getData(min, max, step, length, width) {
