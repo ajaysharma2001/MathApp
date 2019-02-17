@@ -10,11 +10,11 @@ export default function Variables() {
             <h3 >Sheet Dimensions</h3>
             <div style = {rowStyle}>
                 <h4 style = {labelStyle}>X:</h4>
-                <Slider style = {sliderStyle} min = {100} max = {200}/>
+                <Slider style = {sliderStyle} min = {0} max = {100}/>
             </div>
             <div style = {rowStyle}>
                 <h4 style = {labelStyle}>Y:</h4>
-                <Slider style = {sliderStyle} min = {100} max = {200}/>
+                <Slider style = {sliderStyle} min = {0} max = {100}/>
             </div>
         </div>
 
@@ -24,11 +24,7 @@ export default function Variables() {
             <h3>Cutout Dimensions</h3>
             <div style = {rowStyle}>
                 <h4 style = {labelStyle}>X:</h4>
-                <Slider style = {sliderStyle} min = {100} max = {200}/>
-            </div>
-            <div style = {rowStyle}>
-                <h4 style = {labelStyle}>Y:</h4>
-                <Slider style = {sliderStyle} min = {100} max = {200}/>
+                <Slider style = {sliderStyle} min = {0} max = {100}/>
             </div>
         </div>
     </div>
