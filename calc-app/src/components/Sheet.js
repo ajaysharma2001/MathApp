@@ -5,26 +5,55 @@ import Konva from 'konva';
 
 export default function Sheet() {
   return (
-<p style={Stages}>
-    <Stage width={window.innerWidth/3} height={window.innerWidth/3}>
-
+<p style = {col}>
+    <Stage width={window.innerWidth/3} height={window.innerHeight/3}>
+    <Layer>
+      <Rect
+        x={window.innerWidth/12}
+        y={window.innerHeight/12}
+        width={200}
+        height={100}
+        fill="Red"
+        shadowBlur={0}
+      />
+    </Layer>
 <Layer>
   <Rect
-    x={window.innerWidth/9}
-    y={50}
-    width={100}
-    height={100}
+    x={window.innerWidth/12}
+    y={window.innerHeight/12}
+    width={10}
+    height={10}
     fill="Black"
     shadowBlur={0}
   />
 </Layer>
 <Layer>
   <Rect
-    x={85}
-    y={50}
+    x={window.innerWidth/12 + 190}
+    y={window.innerHeight/12}
     width={10}
     height={10}
-    fill="White"
+    fill="Black"
+    shadowBlur={0}
+  />
+</Layer>
+<Layer>
+  <Rect
+    x={window.innerWidth/12 + 190}
+    y={window.innerHeight/12+ 90}
+    width={10}
+    height={10}
+    fill="Black"
+    shadowBlur={0}
+  />
+</Layer>
+<Layer>
+  <Rect
+    x={window.innerWidth/12}
+    y={window.innerHeight/12+ 90}
+    width={10}
+    height={10}
+    fill="Black"
     shadowBlur={0}
   />
 </Layer>
@@ -37,3 +66,11 @@ export default function Sheet() {
   const Stages = {
       alignSelf:'center',
   }
+  const col = {
+      textAlign: 'center',
+      width: '50%',
+      marginTop: '20px',
+      borderRadius: '4',
+      borderWidth: '0.5',
+      borderColor: '#d6d7da'
+    }
