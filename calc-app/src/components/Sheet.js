@@ -3,9 +3,9 @@ import { render } from 'react-dom';
 import { Stage, Layer, Rect, Text } from 'react-konva';
 import Konva from 'konva';
 
-var BigRedRectangleWidth = 200;
+var BigRedRectangleWidth = 100;
 var BigRedRectangleHeight = 100;
-var SliderValueforCorner= 30;
+var SliderValueforCorner= 1;
 
 
 export default function Sheet() {
