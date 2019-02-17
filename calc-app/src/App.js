@@ -20,6 +20,7 @@ class App extends Component {
           <div style = {rowStyle}>
             <div style = {col}>
               {/* Where the graph will go */}
+              <LineGraph />
             </div>
             <div style = {col}>
               <Sheet />
