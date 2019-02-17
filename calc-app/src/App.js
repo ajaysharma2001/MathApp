@@ -4,14 +4,14 @@ import './App.css';
 
 class App extends Component {
   render() {
+    console.log("Hello")
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-
           <p>
-            <br/>FUCK ME AATMAN!!!!!!
-            <br/>PLEASE POPPY
+            <br/>Christian Channel
+            <br/>
           </p>
           <a
             className="App-link"
@@ -21,6 +21,7 @@ class App extends Component {
           >
             Learn React
           </a>
+
         </header>
       </div>
     );
