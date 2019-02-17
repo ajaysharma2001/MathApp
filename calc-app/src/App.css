@@ -4,30 +4,10 @@
   padding: 0;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 body {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
-=======
-=======
-.App-logo {
-  animation: App-logo-spin infinite 0s linear;
-  height: 50vmin;
-  pointer-events: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
->>>>>>> be6a48944bd69b6edc2019aba6687d59c7f03480
 
 a {
   color: #333;
