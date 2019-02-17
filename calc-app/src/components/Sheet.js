@@ -5,10 +5,12 @@ import Konva from 'konva';
 
 export default function Sheet() {
   return (
-    <Stage width={200} height={200}>
+<p style={Stages}>
+    <Stage width={400} height={200}>
+
 <Layer>
   <Rect
-    x={20}
+    x={185}
     y={50}
     width={100}
     height={100}
@@ -17,5 +19,11 @@ export default function Sheet() {
   />
 </Layer>
 </Stage>
+</p>
     );
+  }
+
+
+  const Stages = {
+      alignSelf:'center',
   }
