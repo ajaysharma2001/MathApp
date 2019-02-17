@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import VariablesTitle from './components/layout/VariablesTitle';
+import Variables from './components/Variables';
 
 
 class App extends Component {
@@ -12,9 +13,10 @@ class App extends Component {
       <div>
           <Header />
           <p>
-            BODY
+            ADD DISPLAYS HERE
           </p>
           <VariablesTitle />
+          <Variables />
           <Footer />
       </div>
     );

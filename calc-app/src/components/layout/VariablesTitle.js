@@ -4,14 +4,14 @@ export default function VariablesTitle() {
   return (
       <div style={rowStyle}>
             <hr style={lineStyle} />
-            <p style={textStyle}>Edit Variables</p>
+            <p style={textStyle}>Variables</p>
             <hr style={lineStyle} />
       </div>
   )
 }
 
 const lineStyle = {
-    backgroundColor: 'black', 
+    backgroundColor: '#333', 
     height: 2, 
     flex: 1, 
     alignSelf: 'center'

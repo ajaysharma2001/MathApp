@@ -1,1 +1,2 @@
-neel's here # MathApp
+# MathApp
+npm install --save rc-slider
