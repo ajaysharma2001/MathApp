@@ -2,8 +2,8 @@ import {LineChart} from 'react-easy-chart';
 import React from 'react'
 
 function getData(min, max, step, x, length, width) {
-  
-  return LineChart.data = [
+
+  var test = LineChart.data = [
     [
       { x: 1, y: 20 },
       { x: 2, y: 10 },
