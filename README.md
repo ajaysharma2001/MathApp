@@ -9,3 +9,7 @@ USE THIS COMMAND TO INSTALL LINE GRAPH AND MAKE SURE YOU ARE IN THE RIGHT DIRECT
 
 documentation for how to use line graph
 https://rma-consulting.github.io/react-easy-chart/line-chart/index.html
+
+Install this to make shapes
+npm install react-konva konva --save
+
