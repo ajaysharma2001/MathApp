@@ -1,2 +1,3 @@
 # MathApp
+INSTAL THIS BELOW AND MAKE SURE YOU ARE IN THE RIGHT DIRECTORY 
 npm install --save rc-slider
