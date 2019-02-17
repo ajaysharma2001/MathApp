@@ -1,9 +1,11 @@
 import {LineChart} from 'react-easy-chart';
 import React from 'react'
 
+/*
 getData: (min, max, step, x, length, width) => {
   var dataArray = []
 }
+*/
 
 export default function Header() {
   return (

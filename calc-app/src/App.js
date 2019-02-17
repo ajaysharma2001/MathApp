@@ -8,15 +8,29 @@ import Sheet from './components/Sheet';
 import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Rect, Text, Circle, Line } from 'react-konva';
+import LineGraph from './components/Graph';
+
+
 class App extends Component {
   render() {
     console.log("Hello")
     return (
       <div>
           <Header />
-          <p>
-            <Sheet />
-          </p>
+          <div style = {rowStyle}>
+            <div style = {col}>
+              {/* Where the graph will go */}
+            </div>
+            <div style = {col}>
+              <Sheet />
+            </div>
+            <div style = {col}>
+              {/* Where the 3D display will go */}
+            </div>
+          </div>
+          
+            
+        
           <VariablesTitle />
           <Variables />
           <Footer />
@@ -25,4 +39,13 @@ class App extends Component {
   }
 }
 
+const rowStyle = {
+  display: 'flex', 
+  flexDirection: 'row'
+}
+const col = {
+  textAlign: 'center',
+  width: '33.3333%',
+  marginTop: '20px',
+}
 export default App;
