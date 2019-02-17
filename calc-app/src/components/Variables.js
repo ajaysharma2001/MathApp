@@ -17,9 +17,9 @@ export default function Variables() {
                 <Slider style = {sliderStyle} min = {100} max = {200}/>
             </div>
         </div>
-        
+
         <hr style={lineStyle}/>
-        
+
         <div style = {col}>
             <h3>Cutout Dimensions</h3>
             <div style = {rowStyle}>
@@ -45,13 +45,13 @@ const col = {
   }
 
 const rowStyle = {
-    display: 'flex', 
+    display: 'flex',
     flexDirection: 'row'
   }
 
 const lineStyle = {
     borderLeftWidth: 1,
-    marginTop: '20px', 
+    marginTop: '20px',
     marginBottom: '5px',
     borderLeftColor: '#333'
 }
