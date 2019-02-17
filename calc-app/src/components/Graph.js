@@ -16,7 +16,7 @@ function getData(min, max, step, length, width) {
 export default function Graph() {
   return (
     <div>
-      <LineChart data={getData(0, 30, 0.1, 30, 60)} width={50} height={50}/>
+      <LineChart data={getData(0, 30, 0.1, 30, 60)} axes grid verticalGrid margin={{top: 10, right: 10, bottom: 50, left: 50}} axisLabels={{x: 'My x Axis', y: 'My y Axis'}} width={400} height={400} interpolate={'cardinal'}/>
     </div>
   )
 }
