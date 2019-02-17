@@ -14,13 +14,15 @@ function getData(min, max, step, x, length, width) {
       { x: 3, y: 4 }
     ]
   ];
+  console.log(test[0,0]);
+  return test;
 }
 
 
 export default function Graph() {
   return (
     <div>
-        <LineChart data={getData(0, 10, 1, 2, 30, 60)}/>
+      <LineChart data={getData(0, 10, 1, 2, 30, 60)}/>
     </div>
   )
 }
