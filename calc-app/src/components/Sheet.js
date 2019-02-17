@@ -5,13 +5,17 @@ import Konva from 'konva';
 
 export default function Sheet() {
   return (
-      <Rect
-        x={20}
-        y={20}
-        width={50}
-        height={50}
-        fill= "red"
-        shadowBlur={5}
-      />
+    <Stage width={200} height={200}>
+<Layer>
+  <Rect
+    x={20}
+    y={50}
+    width={100}
+    height={100}
+    fill="red"
+    shadowBlur={10}
+  />
+</Layer>
+</Stage>
     );
   }
