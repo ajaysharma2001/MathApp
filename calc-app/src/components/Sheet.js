@@ -3,6 +3,11 @@ import { render } from 'react-dom';
 import { Stage, Layer, Rect, Text } from 'react-konva';
 import Konva from 'konva';
 
+var BigRedRectangleWidth = 200;
+var BigRedRectangleHeight = 100;
+var SliderValueforCorner= 30;
+
+
 export default function Sheet() {
   return (
 <p style = {col}>
@@ -11,8 +16,8 @@ export default function Sheet() {
       <Rect
         x={window.innerWidth/12}
         y={window.innerHeight/12}
-        width={200}
-        height={100}
+        width={BigRedRectangleWidth}
+        height={BigRedRectangleHeight}
         fill="Red"
         shadowBlur={0}
       />
@@ -21,28 +26,28 @@ export default function Sheet() {
   <Rect
     x={window.innerWidth/12}
     y={window.innerHeight/12}
-    width={10}
-    height={10}
+    width={SliderValueforCorner}
+    height={SliderValueforCorner}
     fill="Black"
     shadowBlur={0}
   />
 </Layer>
 <Layer>
   <Rect
-    x={window.innerWidth/12 + 190}
+    x={window.innerWidth/12 + (BigRedRectangleWidth-SliderValueforCorner)}
     y={window.innerHeight/12}
-    width={10}
-    height={10}
+    width={SliderValueforCorner}
+    height={SliderValueforCorner}
     fill="Black"
     shadowBlur={0}
   />
 </Layer>
 <Layer>
   <Rect
-    x={window.innerWidth/12 + 190}
-    y={window.innerHeight/12+ 90}
-    width={10}
-    height={10}
+    x={window.innerWidth/12 + (BigRedRectangleWidth-SliderValueforCorner)}
+    y={window.innerHeight/12+ (BigRedRectangleHeight-SliderValueforCorner)}
+    width={SliderValueforCorner}
+    height={SliderValueforCorner}
     fill="Black"
     shadowBlur={0}
   />
@@ -50,9 +55,9 @@ export default function Sheet() {
 <Layer>
   <Rect
     x={window.innerWidth/12}
-    y={window.innerHeight/12+ 90}
-    width={10}
-    height={10}
+    y={window.innerHeight/12+ (BigRedRectangleHeight-SliderValueforCorner)}
+    width={SliderValueforCorner}
+    height={SliderValueforCorner}
     fill="Black"
     shadowBlur={0}
   />
