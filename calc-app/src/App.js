@@ -25,7 +25,6 @@ class App extends Component {
     this.setState({
       length: newLength
     });
-    console.log(this.state)
   }
 
   render() {
@@ -49,7 +48,7 @@ class App extends Component {
             
         
           <VariablesTitle />
-          <Variables />
+          <Variables onChangeLength = {this.onChangeLength}/>
           <Footer />
       </div>
     );
