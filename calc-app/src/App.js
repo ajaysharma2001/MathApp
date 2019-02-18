@@ -12,8 +12,23 @@ import LineGraph from './components/Graph';
 
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      length: 60,
+      width: 30,
+      x: 3,
+    }
+  };
+
+  onChangeLength = (newLength) => {
+    this.setState({
+      length: newLength
+    });
+    console.log(this.state)
+  }
+
   render() {
-    console.log("Hello")
     return (
       <div>
           <Header />

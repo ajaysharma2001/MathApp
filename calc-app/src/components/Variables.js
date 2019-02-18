@@ -5,6 +5,7 @@ import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
 import ReactDOM from 'react-dom';
 import Tooltip from 'rc-tooltip';
+import { send } from 'q';
 
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
@@ -31,35 +32,36 @@ class Variables extends Component {
   constructor() {
       super();
       this.state = {
-          cutoutData: '',
-          sheetLData: '',
-          sheetWData: '',
+          cutoutData: 3,
+          sheetLData: 60,
+          sheetWData: 30,
       };
   }
   handleCutout(event) {
-      this.setState({cutoutData: event.target.value});
+      this.setState({cutoutData: parseInt(event.target.value, 10)});
   }
   handleSheetL(event) {
-      this.setState({sheetLData: event.target.value});
+      this.setState({sheetLData: parseInt(event.target.value, 10)});
   }
-  handleSheetW(event) {
-      this.setState({sheetWData: event.target.value});
+  handleSheetW(event, sender) {
+    this.setState({sheetWData: parseInt(event.target.value, 10)});
   }
   render() {
     return (
+        
         <div style={rowStyle}>
             <div style = {col}>
                 <h3 >Sheet Dimensions</h3>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>L:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle={handle} value={this.state.sheetLData}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle={handle} value={this.state.sheetLData} onChange={value=>this.setState({sheetLData: value})}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetLData} onChange={this.handleSheetL.bind(this)} />
                         </div>
                 </div>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>W:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.sheetWData}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.sheetWData} onChange={value=>this.setState({sheetWData: value})}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetWData} onChange={this.handleSheetW.bind(this)} />
                         </div>
@@ -70,7 +72,7 @@ class Variables extends Component {
                 <h3>Cutout Dimensions</h3>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>X:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.cutoutData}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.cutoutData} onChange={value=>this.setState({cutoutData: value})}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.cutoutData} onChange={this.handleCutout.bind(this)} />
                         </div>
