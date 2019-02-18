@@ -32,8 +32,8 @@ class Variables extends Component {
       super();
       this.state = {
           cutoutData: '',
-          sheetXData: '',
-          sheetYData: '',
+          sheetLData: '',
+          sheetWData: '',
       };
   }
 
@@ -41,12 +41,12 @@ class Variables extends Component {
       this.setState({cutoutData: event.target.value.substr(0,2)});
   }
 
-  handleSheetX(event) {
-      this.setState({sheetXData: event.target.value.substr(0,3)});
+  handleSheetL(event) {
+      this.setState({sheetLData: event.target.value.substr(0,2)});
   }
 
-  handleSheetY(event) {
-      this.setState({sheetYData: event.target.value.substr(0,3)});
+  handleSheetW(event) {
+      this.setState({sheetWData: event.target.value.substr(0,2)});
   }
   
   render() {
@@ -58,14 +58,14 @@ class Variables extends Component {
                     <h4 style = {labelStyle}>L:</h4>
                     <Slider style = {sliderStyle} min = {0} max = {100} handle={handle}/>
                         <div style = {inputStyle}>
-                            <input type="number" value={this.state.sheetXData} onChange={this.handleSheetX.bind(this)} />
+                            <input type="number" value={this.state.sheetLData} onChange={this.handleSheetL.bind(this)} />
                         </div>
                 </div>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>W:</h4>
                     <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle}/>
                         <div style = {inputStyle}>
-                            <input type="number" value={this.state.sheetYData} onChange={this.handleSheetY.bind(this)} />
+                            <input type="number" value={this.state.sheetWData} onChange={this.handleSheetW.bind(this)} />
                         </div>
                 </div>
             </div>
