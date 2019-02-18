@@ -1,7 +1,28 @@
 import React from 'react'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import 'rc-tooltip/assets/bootstrap.css';
+import ReactDOM from 'react-dom';
+import Tooltip from 'rc-tooltip';
 
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
+const Range = createSliderWithTooltip(Slider.Range);
+const Handle = Slider.Handle;
+
+const handle = (props) => {
+  const { value, dragging, index, ...restProps } = props;
+  return (
+    <Tooltip
+      prefixCls="rc-slider-tooltip"
+      overlay={value}
+      visible={dragging}
+      placement="top"
+      key={index}
+    >
+      <Handle value={value} {...restProps} />
+    </Tooltip>
+  );
+};
 
 export default function Variables() {
   return (
@@ -10,7 +31,7 @@ export default function Variables() {
             <h3 >Sheet Dimensions</h3>
             <div style = {rowStyle}>
                 <h4 style = {labelStyle}>X:</h4>
-                <Slider style = {sliderStyle} min = {0} max = {100}/>
+                <Slider style = {sliderStyle} min = {0} max = {100} handle={handle}/>
             </div>
             <div style = {rowStyle}>
                 <h4 style = {labelStyle}>Y:</h4>
