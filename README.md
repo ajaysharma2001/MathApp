@@ -12,3 +12,6 @@ https://rma-consulting.github.io/react-easy-chart/line-chart/index.html
 
 Install this to make shapes
 npm install react-konva konva --save
+
+New Library for 3D model is installed through
+npm install whs
