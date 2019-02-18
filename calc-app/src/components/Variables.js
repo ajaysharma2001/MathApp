@@ -49,17 +49,17 @@ class Variables extends Component {
 
   onSliderChangeL = (value) => {
     this.setState({sheetLData: value});
-    this.props.changeLength();
+    this.props.changeLength(value);
   }
 
   onSliderChangeW = (value) => {
       this.setState({sheetWData: value});
-      this.props.changeWidth();
+      this.props.changeWidth(value);
   }
 
   onSliderChangeCutout = (value) => {
     this.setState({cutoutData: value});
-    this.props.changeCutout();
+    this.props.changeCutout(value);
   }
 
   render() {

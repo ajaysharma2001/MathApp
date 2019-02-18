@@ -21,15 +21,15 @@ class App extends Component {
     }
   };
 
-  onChangeLength = () => {
+  onChangeLength = (value) => {
     console.log('hi');
   }
 
-  onChangeWidth = () => {
+  onChangeWidth = (value) => {
     console.log('hi1');
   }
 
-  onChangeCutout = () => {
+  onChangeCutout = (value) => {
     console.log('hi2');
   }
 
