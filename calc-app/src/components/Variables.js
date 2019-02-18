@@ -43,8 +43,8 @@ class Variables extends Component {
   handleSheetL(event) {
       this.setState({sheetLData: parseInt(event.target.value, 10)});
   }
-  handleSheetW(event, sender) {
-    this.setState({sheetWData: parseInt(event.target.value, 10)});
+  handleSheetW = (e) => {
+    this.setState({sheetWData: parseInt(e.target.value, 10)});
   }
   render() {
     return (
@@ -63,7 +63,7 @@ class Variables extends Component {
                     <h4 style = {labelStyle}>W:</h4>
                     <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.sheetWData} onChange={value=>this.setState({sheetWData: value})}/>
                         <div style = {inputStyle}>
-                            <input type="number" value={this.state.sheetWData} onChange={this.handleSheetW.bind(this)} />
+                            <input type="number" value={this.state.sheetWData} onChange={(e) => this.handleSheetW(e)} />
                         </div>
                 </div>
             </div>
