@@ -17,9 +17,7 @@ export default function Variables() {
                 <Slider style = {sliderStyle} min = {0} max = {100}/>
             </div>
         </div>
-
         <hr style={lineStyle}/>
-
         <div style = {col}>
             <h3>Cutout Dimensions</h3>
             <div style = {rowStyle}>
@@ -28,8 +26,10 @@ export default function Variables() {
             </div>
         </div>
     </div>
-  )
+  );
 }
+
+
 
 const col = {
     textAlign: 'center',
