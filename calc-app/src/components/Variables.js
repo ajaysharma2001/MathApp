@@ -55,14 +55,14 @@ class Variables extends Component {
             <div style = {col}>
                 <h3 >Sheet Dimensions</h3>
                 <div style = {rowStyle}>
-                    <h4 style = {labelStyle}>X:</h4>
+                    <h4 style = {labelStyle}>L:</h4>
                     <Slider style = {sliderStyle} min = {0} max = {100} handle={handle}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetXData} onChange={this.handleSheetX.bind(this)} />
                         </div>
                 </div>
                 <div style = {rowStyle}>
-                    <h4 style = {labelStyle}>Y:</h4>
+                    <h4 style = {labelStyle}>W:</h4>
                     <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetYData} onChange={this.handleSheetY.bind(this)} />
