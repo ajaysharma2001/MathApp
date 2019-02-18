@@ -36,19 +36,15 @@ class Variables extends Component {
           sheetWData: '',
       };
   }
-
   handleCutout(event) {
-      this.setState({cutoutData: event.target.value.substr(0,2)});
+      this.setState({cutoutData: event.target.value});
   }
-
   handleSheetL(event) {
-      this.setState({sheetLData: event.target.value.substr(0,2)});
+      this.setState({sheetLData: event.target.value});
   }
-
   handleSheetW(event) {
-      this.setState({sheetWData: event.target.value.substr(0,2)});
+      this.setState({sheetWData: event.target.value});
   }
-  
   render() {
     return (
         <div style={rowStyle}>
@@ -56,14 +52,14 @@ class Variables extends Component {
                 <h3 >Sheet Dimensions</h3>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>L:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle={handle}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle={handle} value={this.state.sheetLData}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetLData} onChange={this.handleSheetL.bind(this)} />
                         </div>
                 </div>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>W:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.sheetWData}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetWData} onChange={this.handleSheetW.bind(this)} />
                         </div>
@@ -74,7 +70,7 @@ class Variables extends Component {
                 <h3>Cutout Dimensions</h3>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>X:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.cutoutData}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.cutoutData} onChange={this.handleCutout.bind(this)} />
                         </div>
