@@ -37,11 +37,11 @@ class Variables extends Component {
           sheetWData: 30,
       };
   }
-  handleCutout(event) {
-      this.setState({cutoutData: parseInt(event.target.value, 10)});
+  handleCutout = (e) => {
+    this.setState({cutoutData: parseInt(e.target.value, 10)});
   }
-  handleSheetL(event) {
-      this.setState({sheetLData: parseInt(event.target.value, 10)});
+  handleSheetL = (e) => {
+    this.setState({sheetLData: parseInt(e.target.value, 10)});
   }
   handleSheetW = (e) => {
     this.setState({sheetWData: parseInt(e.target.value, 10)});
@@ -56,7 +56,7 @@ class Variables extends Component {
                     <h4 style = {labelStyle}>L:</h4>
                     <Slider style = {sliderStyle} min = {0} max = {100} handle={handle} value={this.state.sheetLData} onChange={value=>this.setState({sheetLData: value})}/>
                         <div style = {inputStyle}>
-                            <input type="number" value={this.state.sheetLData} onChange={this.handleSheetL.bind(this)} />
+                            <input type="number" value={this.state.sheetLData} onChange={(e) => this.handleSheetL(e)} />
                         </div>
                 </div>
                 <div style = {rowStyle}>
@@ -74,7 +74,7 @@ class Variables extends Component {
                     <h4 style = {labelStyle}>X:</h4>
                     <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.cutoutData} onChange={value=>this.setState({cutoutData: value})}/>
                         <div style = {inputStyle}>
-                            <input type="number" value={this.state.cutoutData} onChange={this.handleCutout.bind(this)} />
+                            <input type="number" value={this.state.cutoutData} onChange={(e) => this.handleCutout(e)} />
                         </div>
                 </div>
             </div>
