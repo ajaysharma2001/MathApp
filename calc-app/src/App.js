@@ -21,10 +21,16 @@ class App extends Component {
     }
   };
 
-  onChangeLength = (newLength) => {
-    this.setState({
-      length: newLength
-    });
+  onChangeLength = () => {
+    console.log('hi');
+  }
+
+  onChangeWidth = () => {
+    console.log('hi1');
+  }
+
+  onChangeCutout = () => {
+    console.log('hi2');
   }
 
   render() {
@@ -48,7 +54,7 @@ class App extends Component {
             
         
           <VariablesTitle />
-          <Variables onChangeLength = {this.onChangeLength}/>
+          <Variables changeLength={this.onChangeLength} changeWidth={this.onChangeWidth} changeCutout={this.onChangeCutout}/>
           <Footer />
       </div>
     );

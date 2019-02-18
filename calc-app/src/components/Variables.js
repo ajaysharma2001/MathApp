@@ -46,22 +46,37 @@ class Variables extends Component {
   handleSheetW = (e) => {
     this.setState({sheetWData: parseInt(e.target.value, 10)});
   }
+
+  onSliderChangeL = (value) => {
+    this.setState({sheetLData: value});
+    this.props.changeLength();
+  }
+
+  onSliderChangeW = (value) => {
+      this.setState({sheetWData: value});
+      this.props.changeWidth();
+  }
+
+  OnSliderChangeCutout = (value) => {
+    this.setState({cutoutData: value});
+    this.props.changeCutout();
+  }
+
   render() {
     return (
-        
         <div style={rowStyle}>
             <div style = {col}>
                 <h3 >Sheet Dimensions</h3>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>L:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle={handle} value={this.state.sheetLData} onChange={value=>this.setState({sheetLData: value})}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle={handle} value={this.state.sheetLData} onChange={value=> this.onSliderChangeL(value)}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetLData} onChange={(e) => this.handleSheetL(e)} />
                         </div>
                 </div>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>W:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.sheetWData} onChange={value=>this.setState({sheetWData: value})}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.sheetWData} onChange={value=> this.onSliderChangeW(value)}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetWData} onChange={(e) => this.handleSheetW(e)} />
                         </div>
@@ -72,7 +87,7 @@ class Variables extends Component {
                 <h3>Cutout Dimensions</h3>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>X:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.cutoutData} onChange={value=>this.setState({cutoutData: value})}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.cutoutData} onChange={value=> this.OnSliderChangeCutout(value)}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.cutoutData} onChange={(e) => this.handleCutout(e)} />
                         </div>
