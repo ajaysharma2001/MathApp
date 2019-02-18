@@ -5,7 +5,7 @@ import Konva from 'konva';
 
 var BigRedRectangleWidth = 100;
 var BigRedRectangleHeight = 100;
-var SliderValueforCorner= 1;
+var SliderValueforCorner= 10;
 
 
 export default function Sheet() {
