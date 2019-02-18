@@ -1,5 +1,4 @@
 import {LineChart} from 'react-easy-chart';
-import {ScatterplotChart} from 'react-easy-chart';
 import React from 'react'
 
 function getData(min, max, step, length, width) {
@@ -13,11 +12,30 @@ function getData(min, max, step, length, width) {
   return [dataArray];
 }
 
+function getCurrentPoint(length, width, x) {
+  var point = LineChart.data = { x: x, y:(length - 2*x) *(width - 2 *x) *x };
+  var arr = [point];
+  return [arr];
+}
 
 export default function Graph() {
   return (
     <div>
-      <LineChart style={{ '.label': { fill: 'black' } }} data={getData(0, 30, 0.1, 30, 60)} axes grid verticalGrid margin={{top: 10, right: 10, bottom: 50, left: 50}} axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={400} height={400} interpolate={'cardinal'}/>
+      <div style = {overlap}>
+        <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={getData(0, 15, 0.1, 30, 60)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={400} height={400} interpolate={'cardinal'}/>
+      </div>
+      <div style = {overlap}>
+        <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={getCurrentPoint(30,60,5)} width={400} height={400} dataPoints xDomainRange={[0, 15]} yDomainRange={[0, 5195.987999999999]}/>
+      </div>
     </div>
   )
+}
+
+const overlap = {
+  position: 'absolute',
+  marginLeft: '1%'
+}
+
+const onTop = {
+  marginLeft: '1%'
 }

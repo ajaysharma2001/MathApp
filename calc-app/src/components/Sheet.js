@@ -85,5 +85,6 @@ export default function Sheet() {
       marginTop: '20px',
       borderRadius: '4',
       borderWidth: '0.5',
-      borderColor: '#d6d7da'
+      borderColor: '#d6d7da',
+      marginBottom: '100px'
     }
