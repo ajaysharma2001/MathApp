@@ -40,7 +40,7 @@ class App extends Component {
           <div style = {rowStyle}>
             <div style = {col}>
               {/* Where the graph will go */}
-              <LineGraph />
+              <LineGraph length={this.state.length} width={this.state.width} x={this.state.x}/>
             </div>
             <div style = {col}>
               <Sheet />
