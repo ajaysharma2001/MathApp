@@ -1,9 +1,11 @@
-import React from 'react'
+//import React from 'react'
+import React, { Component } from 'react';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
 import ReactDOM from 'react-dom';
 import Tooltip from 'rc-tooltip';
+
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -25,33 +27,66 @@ const handle = (props) => {
 };
 
 
+class Variables extends Component {
+  constructor() {
+      super();
+      this.state = {
+          cutoutData: '',
+          sheetXData: '',
+          sheetYData: '',
+      };
+  }
 
-export default function Variables() {
-  return (
-    <div style={rowStyle}>
-        <div style = {col}>
-            <h3 >Sheet Dimensions</h3>
-            <div style = {rowStyle}>
-                <h4 style = {labelStyle}>X:</h4>
-                <Slider style = {sliderStyle} min = {0} max = {100} handle={handle}/>
+  handleCutout(event) {
+      this.setState({cutoutData: event.target.value.substr(0,2)});
+  }
+
+  handleSheetX(event) {
+      this.setState({sheetXData: event.target.value.substr(0,3)});
+  }
+
+  handleSheetY(event) {
+      this.setState({sheetYData: event.target.value.substr(0,3)});
+  }
+  
+  render() {
+    return (
+        <div style={rowStyle}>
+            <div style = {col}>
+                <h3 >Sheet Dimensions</h3>
+                <div style = {rowStyle}>
+                    <h4 style = {labelStyle}>X:</h4>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle={handle}/>
+                        <div style = {inputStyle}>
+                            <input type="number" value={this.state.sheetXData} onChange={this.handleSheetX.bind(this)} />
+                        </div>
+                </div>
+                <div style = {rowStyle}>
+                    <h4 style = {labelStyle}>Y:</h4>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle}/>
+                        <div style = {inputStyle}>
+                            <input type="number" value={this.state.sheetYData} onChange={this.handleSheetY.bind(this)} />
+                        </div>
+                </div>
             </div>
-            <div style = {rowStyle}>
-                <h4 style = {labelStyle}>Y:</h4>
-                <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle}/>
+            <hr style={lineStyle}/>
+            <div style = {col}>
+                <h3>Cutout Dimensions</h3>
+                <div style = {rowStyle}>
+                    <h4 style = {labelStyle}>X:</h4>
+                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle}/>
+                        <div style = {inputStyle}>
+                            <input type="number" value={this.state.cutoutData} onChange={this.handleCutout.bind(this)} />
+                        </div>
+                </div>
             </div>
         </div>
-        <hr style={lineStyle}/>
-        <div style = {col}>
-            <h3>Cutout Dimensions</h3>
-            <div style = {rowStyle}>
-                <h4 style = {labelStyle}>X:</h4>
-                <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle}/>
-            </div>
-        </div>
-    </div>
-  );
+      );
+  }
+  
 }
 
+export default Variables;
 
 
 const col = {
@@ -86,4 +121,11 @@ const labelStyle = {
     marginLeft: '20px',
     marginTop: '16px',
     marginBottom: '20px',
+}
+
+const inputStyle = {
+    marginLeft: '10px',
+    marginTop: '16px',
+    marginBottom: '20px',
+    
 }
