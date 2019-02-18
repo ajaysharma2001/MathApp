@@ -22,15 +22,21 @@ class App extends Component {
   };
 
   onChangeLength = (value) => {
-    console.log('hi');
+    this.setState({
+      length:value
+    });
   }
 
   onChangeWidth = (value) => {
-    console.log('hi1');
+    this.setState({
+      width:value
+    });
   }
 
   onChangeCutout = (value) => {
-    console.log('hi2');
+    this.setState({
+      x:value
+    });
   }
 
   render() {
