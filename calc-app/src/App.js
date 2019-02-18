@@ -28,6 +28,9 @@ class App extends Component {
             <div style = {col}>
               {/* Where the 3D display will go */}
             </div>
+            <div style = {col}>
+              <Variables />
+            </div>
           </div>
           
             
