@@ -1,4 +1,5 @@
 import {LineChart} from 'react-easy-chart';
+import {ScatterplotChart} from 'react-easy-chart';
 import React from 'react'
 
 function getData(min, max, step, length, width) {
@@ -16,7 +17,7 @@ function getData(min, max, step, length, width) {
 export default function Graph() {
   return (
     <div>
-      <LineChart data={getData(0, 30, 0.1, 30, 60)} axes grid verticalGrid margin={{top: 10, right: 10, bottom: 50, left: 50}} axisLabels={{x: 'My x Axis', y: 'My y Axis'}} width={400} height={400} interpolate={'cardinal'}/>
+      <LineChart style={{ '.label': { fill: 'black' } }} data={getData(0, 30, 0.1, 30, 60)} axes grid verticalGrid margin={{top: 10, right: 10, bottom: 50, left: 50}} axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={400} height={400} interpolate={'cardinal'}/>
     </div>
   )
 }
