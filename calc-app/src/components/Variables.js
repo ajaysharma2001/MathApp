@@ -57,7 +57,7 @@ class Variables extends Component {
       this.props.changeWidth();
   }
 
-  OnSliderChangeCutout = (value) => {
+  onSliderChangeCutout = (value) => {
     this.setState({cutoutData: value});
     this.props.changeCutout();
   }
