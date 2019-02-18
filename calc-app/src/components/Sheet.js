@@ -11,9 +11,9 @@ import Variables from './Variables'
 
 
 
-var BigRedRectangleWidth = 100;
-var BigRedRectangleHeight = 100;
-var SliderValueforCorner= 10;
+var BigRedRectangleWidth = 200;
+var BigRedRectangleHeight = 200;
+var SliderValueforCorner= 50;
 
 
 export default function Sheet() {
