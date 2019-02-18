@@ -24,6 +24,8 @@ const handle = (props) => {
   );
 };
 
+
+
 export default function Variables() {
   return (
     <div style={rowStyle}>

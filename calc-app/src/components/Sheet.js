@@ -2,6 +2,14 @@ import React from 'react'
 import { render } from 'react-dom';
 import { Stage, Layer, Rect, Text } from 'react-konva';
 import Konva from 'konva';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
+import 'rc-tooltip/assets/bootstrap.css';
+import ReactDOM from 'react-dom';
+import Tooltip from 'rc-tooltip';
+import Variables from './Variables'
+
+
 
 var BigRedRectangleWidth = 100;
 var BigRedRectangleHeight = 100;
