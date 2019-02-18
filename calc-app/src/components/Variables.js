@@ -35,7 +35,7 @@ export default function Variables() {
             </div>
             <div style = {rowStyle}>
                 <h4 style = {labelStyle}>Y:</h4>
-                <Slider style = {sliderStyle} min = {0} max = {100}/>
+                <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle}/>
             </div>
         </div>
         <hr style={lineStyle}/>
@@ -43,7 +43,7 @@ export default function Variables() {
             <h3>Cutout Dimensions</h3>
             <div style = {rowStyle}>
                 <h4 style = {labelStyle}>X:</h4>
-                <Slider style = {sliderStyle} min = {0} max = {100}/>
+                <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle}/>
             </div>
         </div>
     </div>
