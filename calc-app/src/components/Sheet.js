@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from 'react-dom';
 import { Stage, Layer, Rect, Text } from 'react-konva';
 import Konva from 'konva';
@@ -8,72 +7,82 @@ import 'rc-tooltip/assets/bootstrap.css';
 import ReactDOM from 'react-dom';
 import Tooltip from 'rc-tooltip';
 import Variables from './Variables'
+import React, { Component } from 'react';
 
 
 
-var BigRedRectangleWidth = 200;
-var BigRedRectangleHeight = 200;
-var SliderValueforCorner= 50;
+class Sheet extends Component{
+  constructor(){
+    super();
+    this.state = {
+      BigRedRectangleWidth: 100,
+      BigRedRectangleHeight: 100,
+      SliderValueforCorner: 30,
+  };
+}
 
-
-export default function Sheet() {
-  return (
-<p style = {col}>
-    <Stage width={window.innerWidth/3} height={window.innerHeight/3}>
+render() {
+  return(
+    <p style = {col}>
+        <Stage width={window.innerWidth/3} height={window.innerHeight/3}>
+        <Layer>
+          <Rect
+            x={window.innerWidth/12}
+            y={window.innerHeight/12}
+            width={this.state.BigRedRectangleWidth}
+            height={this.state.BigRedRectangleHeight}
+            fill="Red"
+            shadowBlur={0}
+          />
+        </Layer>
     <Layer>
       <Rect
         x={window.innerWidth/12}
         y={window.innerHeight/12}
-        width={BigRedRectangleWidth}
-        height={BigRedRectangleHeight}
-        fill="Red"
+        width={this.state.SliderValueforCorner}
+        height={this.state.SliderValueforCorner}
+        fill="Black"
         shadowBlur={0}
       />
     </Layer>
-<Layer>
-  <Rect
-    x={window.innerWidth/12}
-    y={window.innerHeight/12}
-    width={SliderValueforCorner}
-    height={SliderValueforCorner}
-    fill="Black"
-    shadowBlur={0}
-  />
-</Layer>
-<Layer>
-  <Rect
-    x={window.innerWidth/12 + (BigRedRectangleWidth-SliderValueforCorner)}
-    y={window.innerHeight/12}
-    width={SliderValueforCorner}
-    height={SliderValueforCorner}
-    fill="Black"
-    shadowBlur={0}
-  />
-</Layer>
-<Layer>
-  <Rect
-    x={window.innerWidth/12 + (BigRedRectangleWidth-SliderValueforCorner)}
-    y={window.innerHeight/12+ (BigRedRectangleHeight-SliderValueforCorner)}
-    width={SliderValueforCorner}
-    height={SliderValueforCorner}
-    fill="Black"
-    shadowBlur={0}
-  />
-</Layer>
-<Layer>
-  <Rect
-    x={window.innerWidth/12}
-    y={window.innerHeight/12+ (BigRedRectangleHeight-SliderValueforCorner)}
-    width={SliderValueforCorner}
-    height={SliderValueforCorner}
-    fill="Black"
-    shadowBlur={0}
-  />
-</Layer>
-</Stage>
-</p>
-    );
-  }
+    <Layer>
+      <Rect
+        x={window.innerWidth/12 + (this.state.BigRedRectangleWidth-this.state.SliderValueforCorner)}
+        y={window.innerHeight/12}
+        width={this.state.SliderValueforCorner}
+        height={this.state.SliderValueforCorner}
+        fill="Black"
+        shadowBlur={0}
+      />
+    </Layer>
+    <Layer>
+      <Rect
+        x={window.innerWidth/12 + (this.state.BigRedRectangleWidth-this.state.SliderValueforCorner)}
+        y={window.innerHeight/12+ (this.state.BigRedRectangleHeight-this.state.SliderValueforCorner)}
+        width={this.state.SliderValueforCorner}
+        height={this.state.SliderValueforCorner}
+        fill="Black"
+        shadowBlur={0}
+      />
+    </Layer>
+    <Layer>
+      <Rect
+        x={window.innerWidth/12}
+        y={window.innerHeight/12+ (this.state.BigRedRectangleHeight-this.state.SliderValueforCorner)}
+        width={this.state.SliderValueforCorner}
+        height={this.state.SliderValueforCorner}
+        fill="Black"
+        shadowBlur={0}
+      />
+    </Layer>
+    </Stage>
+    </p>
+        );
+      }
+}
+export default Sheet;
+
+
 
 
   const Stages = {
