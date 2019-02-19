@@ -2,31 +2,83 @@ import {LineChart} from 'react-easy-chart';
 import React, { Component } from 'react';
 
 
-var graphData
-
-
-function getCurrentPoint(length, width, x) {
-  var point = LineChart.data = { x: x, y:(length - 2*x) *(width - 2 *x) *x };
-  var arr = [point];
-  return [arr];
-}
-
 var currentMaxVolume = 5195.987999999999;
+var currentMinVolume = 0;
 
 class Graph extends Component {
 
-  getData = (min, max, step, length, width) => {
-    var dataArray = []
+  getCurrentPoint(length, width, x) {
+    var point = LineChart.data = { x: x, y:(length - 2*x) *(width - 2 *x) *x };
+    var arr = [point];
+    return [arr];
+  }
+
+  getCurrentPointPrime(length, width, x, showFirstDerivitive) {
+    if(!showFirstDerivitive) {
+      return [];
+    }
+    var point = LineChart.data = { x: x, y:(12*x*x) + (-4*width - 4*length)*x + length * width };
+    var arr = [point];
+    return [arr];
+  }
+
+  getCurrentPointDoublePrime(length, width, x, showSecondDerivitive) {
+    if(!showSecondDerivitive) {
+      return [];
+    }
+    var point = LineChart.data = { x: x, y: 4 * (6*x - width - length) };
+    var arr = [point];
+    return [arr];
+  }
+
+  getData = (min, max, step, length, width, showFirstDerivitive, showSecondDerivitive) => {
+    var returnArray = []
+    var dataArray = [];
     currentMaxVolume = 0;
+    currentMinVolume = 0;
     for(var i = min; i < max; i += step) {
       var point = LineChart.data = { x: i, y:(length - 2*i) *(width - 2 *i) *i };
       if(point.y > currentMaxVolume) {
-        currentMaxVolume = point.y
+        currentMaxVolume = point.y;
       }
       dataArray.push(point);
     }
-    graphData = [dataArray];
-    return [dataArray];
+
+    returnArray.push(dataArray);
+
+    if(showFirstDerivitive) {
+      var dataArrayPrime = [];
+      for(var i = min; i < max; i += step) {
+        var point = LineChart.data = { x: i, y: (12*i*i) + (-4*width - 4*length)*i + length * width };
+        if(point.y > currentMaxVolume) {
+          currentMaxVolume = point.y;
+        }
+        if(point.y < currentMinVolume) {
+          currentMinVolume = point.y;
+        }
+        dataArrayPrime.push(point);
+      }
+  
+      returnArray.push(dataArrayPrime);
+    }
+    
+    if(showSecondDerivitive) {
+      var dataArrayDoublePrime = [];
+      for(var i = min; i < max; i += step) {
+        var point = LineChart.data = { x: i, y: 4 * (6*i - width - length) };
+        if(point.y > currentMaxVolume) {
+          currentMaxVolume = point.y;
+        }
+        if(point.y < currentMinVolume) {
+          currentMinVolume = point.y;
+        }
+        dataArrayDoublePrime.push(point);
+      }
+  
+      returnArray.push(dataArrayDoublePrime);
+    }
+    
+    return returnArray;
   }
 
   maxCutout(length, width) {
@@ -42,20 +94,21 @@ class Graph extends Component {
     return (
       <div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={this.getData(0, this.maxCutout(this.props.length, this.props.width), 0.1, this.props.length, this.props.width)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={400} height={400} interpolate={'cardinal'}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={this.getData(0, this.maxCutout(this.props.length, this.props.width), 0.1, this.props.length, this.props.width, this.props.showFirstDerivitive, this.props.showSecondDerivitive)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={600} height={400} interpolate={'cardinal'} lineColors={['black', 'red', 'green']}/>
         </div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={getCurrentPoint(this.props.length,this.props.width,this.props.x)} width={400} height={400} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[0, currentMaxVolume]}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} data={this.getCurrentPoint(this.props.length,this.props.width,this.props.x)} width={600} height={400} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
+        </div>
+        <div style = {overlap}>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} data={this.getCurrentPointPrime(this.props.length,this.props.width,this.props.x,this.props.showFirstDerivitive)} width={600} height={400} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
+        </div>
+        <div style = {overlap}>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} data={this.getCurrentPointDoublePrime(this.props.length,this.props.width,this.props.x,this.props.showSecondDerivitive)} width={600} height={400} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
         </div>
       </div>
     )
   }
 }
-
-
-
-
-
 export default Graph;
 
 const overlap = {
@@ -66,3 +119,4 @@ const overlap = {
 const onTop = {
   marginLeft: '1%'
 }
+

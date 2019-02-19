@@ -18,6 +18,8 @@ class App extends Component {
       length: 100,
       width: 100,
       x: 10,
+      showFirstDerivitive: false,
+      showSecondDerivitive: false
     }
   };
 
@@ -39,6 +41,14 @@ class App extends Component {
     });
   }
 
+  onFirstDerivitiveClick = () => {
+    this.setState({ showFirstDerivitive: !this.state.showFirstDerivitive });
+  }
+
+  onSecondDerivitiveClick = () => {
+    this.setState({ showSecondDerivitive: !this.state.showSecondDerivitive });
+  }
+
   render() {
     return (
       <div>
@@ -46,7 +56,13 @@ class App extends Component {
           <div style = {rowStyle}>
             <div style = {col}>
               {/* Where the graph will go */}
-              <LineGraph length={this.state.length} width={this.state.width} x={this.state.x}/>
+              <LineGraph length={this.state.length} width={this.state.width} x={this.state.x} showFirstDerivitive={this.state.showFirstDerivitive} showSecondDerivitive={this.state.showSecondDerivitive} />
+              <div style = {checkboxStyle}>
+                <input type="checkbox" onChange={this.onFirstDerivitiveClick}/> {" "}
+                  { 'Show First Derivitive' } {"   "}
+                <input type="checkbox" onChange={this.onSecondDerivitiveClick}/> {" "}
+                  { 'Show Second Derivitive' }
+              </div>
             </div>
             <div style = {col}>
               <Sheet BigRedRectangleHeight={this.state.length} BigRedRectangleWidth={this.state.width} SliderValueforCorner={this.state.x}/>
@@ -76,5 +92,12 @@ const col = {
   textAlign: 'center',
   width: '33.3333%',
   marginTop: '20px',
+}
+
+const checkboxStyle = {
+  marginTop: '450px',
+  background: '#f4f4f4',
+  padding: '10px',
+  borderBottom: '1px #ccc dotted'
 }
 export default App;
