@@ -13,6 +13,13 @@ class Graph extends Component {
     return [arr];
   }
 
+  createXAxis(length, width) {
+    var POne = LineChart.data = { x:0, y:0 };
+    var PTwo = LineChart.data = { x:this.maxCutout(length, width), y:0 };
+    var arr = [POne, PTwo];
+    return arr;
+  }
+
   getCurrentPointPrime(length, width, x, showFirstDerivitive) {
     if(!showFirstDerivitive) {
       return [];
@@ -32,7 +39,7 @@ class Graph extends Component {
   }
 
   getData = (min, max, step, length, width, showFirstDerivitive, showSecondDerivitive) => {
-    var returnArray = []
+    var returnArray = [this.createXAxis(length,width)];
     var dataArray = [];
     currentMaxVolume = 0;
     currentMinVolume = 0;
@@ -90,11 +97,18 @@ class Graph extends Component {
     }
   }
 
+  getLineColours(showFirstDerivitive, showSecondDerivitive) {
+    if(!showFirstDerivitive && showSecondDerivitive) {
+      return ['black', 'blue', 'green'];
+    }
+    return ['black', 'blue', 'red', 'green'];
+  }
+
   render() {
     return (
       <div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} style={{ '.label': { fill: 'black' } }} data={this.getData(0, this.maxCutout(this.props.length, this.props.width), 0.1, this.props.length, this.props.width, this.props.showFirstDerivitive, this.props.showSecondDerivitive)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={600} height={600} interpolate={'cardinal'} lineColors={['black', 'red', 'green']}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} style={{ '.label': { fill: 'black' } }} data={this.getData(0, this.maxCutout(this.props.length, this.props.width), 0.1, this.props.length, this.props.width, this.props.showFirstDerivitive, this.props.showSecondDerivitive)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={600} height={600} interpolate={'cardinal'} lineColors={this.getLineColours(this.props.showFirstDerivitive, this.props.showSecondDerivitive)}/>
         </div>
         <div style = {overlap}>
           <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} data={this.getCurrentPoint(this.props.length,this.props.width,this.props.x)} width={600} height={600} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
