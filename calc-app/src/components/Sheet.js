@@ -12,14 +12,6 @@ import React, { Component } from 'react';
 
 
 class Sheet extends Component{
-  constructor(){
-    super();
-    this.state = {
-      BigRedRectangleWidth: 100,
-      BigRedRectangleHeight: 100,
-      SliderValueforCorner: 30,
-  };
-}
 
 render() {
   return(
@@ -29,8 +21,8 @@ render() {
           <Rect
             x={window.innerWidth/12}
             y={window.innerHeight/12}
-            width={this.state.BigRedRectangleWidth}
-            height={this.state.BigRedRectangleHeight}
+            width={this.props.BigRedRectangleWidth}
+            height={this.props.BigRedRectangleHeight}
             fill="Red"
             shadowBlur={0}
           />
@@ -39,28 +31,28 @@ render() {
       <Rect
         x={window.innerWidth/12}
         y={window.innerHeight/12}
-        width={this.state.SliderValueforCorner}
-        height={this.state.SliderValueforCorner}
+        width={this.props.SliderValueforCorner}
+        height={this.props.SliderValueforCorner}
         fill="Black"
         shadowBlur={0}
       />
     </Layer>
     <Layer>
       <Rect
-        x={window.innerWidth/12 + (this.state.BigRedRectangleWidth-this.state.SliderValueforCorner)}
+        x={window.innerWidth/12 + (this.props.BigRedRectangleWidth-this.props.SliderValueforCorner)}
         y={window.innerHeight/12}
-        width={this.state.SliderValueforCorner}
-        height={this.state.SliderValueforCorner}
+        width={this.props.SliderValueforCorner}
+        height={this.props.SliderValueforCorner}
         fill="Black"
         shadowBlur={0}
       />
     </Layer>
     <Layer>
       <Rect
-        x={window.innerWidth/12 + (this.state.BigRedRectangleWidth-this.state.SliderValueforCorner)}
-        y={window.innerHeight/12+ (this.state.BigRedRectangleHeight-this.state.SliderValueforCorner)}
-        width={this.state.SliderValueforCorner}
-        height={this.state.SliderValueforCorner}
+        x={window.innerWidth/12 + (this.props.BigRedRectangleWidth-this.props.SliderValueforCorner)}
+        y={window.innerHeight/12+ (this.props.BigRedRectangleHeight-this.props.SliderValueforCorner)}
+        width={this.props.SliderValueforCorner}
+        height={this.props.SliderValueforCorner}
         fill="Black"
         shadowBlur={0}
       />
@@ -68,9 +60,9 @@ render() {
     <Layer>
       <Rect
         x={window.innerWidth/12}
-        y={window.innerHeight/12+ (this.state.BigRedRectangleHeight-this.state.SliderValueforCorner)}
-        width={this.state.SliderValueforCorner}
-        height={this.state.SliderValueforCorner}
+        y={window.innerHeight/12+ (this.props.BigRedRectangleHeight-this.props.SliderValueforCorner)}
+        width={this.props.SliderValueforCorner}
+        height={this.props.SliderValueforCorner}
         fill="Black"
         shadowBlur={0}
       />

@@ -49,7 +49,7 @@ class App extends Component {
               <LineGraph length={this.state.length} width={this.state.width} x={this.state.x}/>
             </div>
             <div style = {col}>
-              <Sheet />
+              <Sheet BigRedRectangleHeight={this.state.length} BigRedRectangleWidth={this.state.width} SliderValueforCorner={this.state.x}/>
             </div>
             <div style = {col}>
               {/* Where the 3D display will go */}
