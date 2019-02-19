@@ -27,7 +27,6 @@ const handle = (props) => {
   );
 };
 
-
 class Variables extends Component {
   constructor() {
       super();
@@ -62,6 +61,15 @@ class Variables extends Component {
     this.props.changeCutout(value);
   }
 
+  maxCutout (lengthData, widthData) {
+      if(lengthData > widthData) {
+          return widthData/2;
+      }
+      else {
+          return lengthData/2;
+      }
+  }
+  
   render() {
     return (
         <div style={rowStyle}>
@@ -69,14 +77,14 @@ class Variables extends Component {
                 <h3 >Sheet Dimensions</h3>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>L:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle={handle} value={this.state.sheetLData} onChange={value=> this.onSliderChangeL(value)}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} step={0.01} handle={handle} value={this.state.sheetLData} onChange={value=> this.onSliderChangeL(value)}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetLData} onChange={(e) => this.handleSheetL(e)} />
                         </div>
                 </div>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>W:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.sheetWData} onChange={value=> this.onSliderChangeW(value)}/>
+                    <Slider style = {sliderStyle} min = {0} max = {100} step={0.01} handle ={handle} value={this.state.sheetWData} onChange={value=> this.onSliderChangeW(value)}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetWData} onChange={(e) => this.handleSheetW(e)} />
                         </div>
@@ -87,7 +95,7 @@ class Variables extends Component {
                 <h3>Cutout Dimensions</h3>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>X:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} handle ={handle} value={this.state.cutoutData} onChange={value=> this.OnSliderChangeCutout(value)}/>
+                    <Slider style = {sliderStyle} min = {0} max = {this.maxCutout(this.state.sheetLData, this.state.sheetWData)} step={0.01} handle ={handle} value={this.state.cutoutData} onChange={value=> this.onSliderChangeCutout(value)}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.cutoutData} onChange={(e) => this.handleCutout(e)} />
                         </div>
