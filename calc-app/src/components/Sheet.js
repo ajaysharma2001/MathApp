@@ -16,7 +16,7 @@ class Sheet extends Component{
 render() {
   return(
     <p style = {col}>
-        <Stage width={window.innerWidth/3} height={window.innerHeight/3}>
+        <Stage width={window.innerWidth/2} height={window.innerHeight/2}>
         <Layer>
           <Rect
             x={window.innerWidth/12}
