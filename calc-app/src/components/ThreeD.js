@@ -26,6 +26,8 @@ class ThreeScene extends Component{
     var material = new THREE.MeshBasicMaterial({ color: '#433F81'     })
     this.cube = new THREE.Mesh(geometry, material)
     this.scene.add(this.cube)
+
+    //ADD controls
 this.start()
   }
 componentWillUnmount(){
