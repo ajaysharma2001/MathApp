@@ -9,7 +9,7 @@ import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Rect, Text, Circle, Line } from 'react-konva';
 import LineGraph from './components/Graph';
-
+import ThreeScene from './components/ThreeD';
 
 class App extends Component {
   constructor() {
@@ -53,12 +53,13 @@ class App extends Component {
             </div>
             <div style = {col}>
               {/* Where the 3D display will go */}
+              <ThreeScene />
             </div>
-            
+
           </div>
-          
-            
-        
+
+
+
           <VariablesTitle />
           <Variables changeLength={this.onChangeLength} changeWidth={this.onChangeWidth} changeCutout={this.onChangeCutout}/>
           <Footer />
@@ -68,7 +69,7 @@ class App extends Component {
 }
 
 const rowStyle = {
-  display: 'flex', 
+  display: 'flex',
   flexDirection: 'row'
 }
 const col = {
