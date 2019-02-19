@@ -31,9 +31,9 @@ class Variables extends Component {
   constructor() {
       super();
       this.state = {
-          cutoutData: 3,
-          sheetLData: 60,
-          sheetWData: 30,
+          cutoutData: 10,
+          sheetLData: 100,
+          sheetWData: 100,
       };
   }
   handleCutout = (e) => {
@@ -69,7 +69,7 @@ class Variables extends Component {
           return lengthData/2;
       }
   }
-  
+
   render() {
     return (
         <div style={rowStyle}>
@@ -104,7 +104,7 @@ class Variables extends Component {
         </div>
       );
   }
-  
+
 }
 
 export default Variables;
@@ -148,5 +148,5 @@ const inputStyle = {
     marginLeft: '10px',
     marginTop: '16px',
     marginBottom: '20px',
-    
+
 }

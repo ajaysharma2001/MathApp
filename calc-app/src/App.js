@@ -15,9 +15,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      length: 60,
-      width: 30,
-      x: 3,
+      length: 100,
+      width: 100,
+      x: 10,
     }
   };
 
@@ -49,11 +49,11 @@ class App extends Component {
               <LineGraph length={this.state.length} width={this.state.width} x={this.state.x}/>
             </div>
             <div style = {col}>
-              <Sheet BigRedRectangleHeight={3*this.state.length} BigRedRectangleWidth={3*this.state.width} SliderValueforCorner={3*this.state.x}/>
+              <Sheet BigRedRectangleHeight={2*this.state.length} BigRedRectangleWidth={2*this.state.width} SliderValueforCorner={2*this.state.x}/>
             </div>
             <div style = {col}>
               {/* Where the 3D display will go */}
-              <ThreeScene />
+              <ThreeScene BigRedRectangleHeight={this.state.length} BigRedRectangleWidth={this.state.width} SliderValueforCorner={this.state.x}/>
             </div>
 
           </div>
