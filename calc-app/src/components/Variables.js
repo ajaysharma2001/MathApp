@@ -80,14 +80,14 @@ class Variables extends Component {
                 <h3 >Sheet Dimensions</h3>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>L:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} step={0.01} handle={handle} value={this.state.sheetLData} onChange={value=> this.onSliderChangeL(value)}/>
+                    <Slider style = {sliderStyle} min = {0} max = {200} step={0.01} handle={handle} value={this.state.sheetLData} onChange={value=> this.onSliderChangeL(value)}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetLData} onChange={(e) => this.handleSheetL(e)} />
                         </div>
                 </div>
                 <div style = {rowStyle}>
                     <h4 style = {labelStyle}>W:</h4>
-                    <Slider style = {sliderStyle} min = {0} max = {100} step={0.01} handle ={handle} value={this.state.sheetWData} onChange={value=> this.onSliderChangeW(value)}/>
+                    <Slider style = {sliderStyle} min = {0} max = {200} step={0.01} handle ={handle} value={this.state.sheetWData} onChange={value=> this.onSliderChangeW(value)}/>
                         <div style = {inputStyle}>
                             <input type="number" value={this.state.sheetWData} onChange={(e) => this.handleSheetW(e)} />
                         </div>
