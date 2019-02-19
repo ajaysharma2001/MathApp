@@ -45,7 +45,7 @@ class Graph extends Component {
           <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={this.getData(0, this.maxCutout(this.props.length, this.props.width), 0.1, this.props.length, this.props.width)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={400} height={400} interpolate={'cardinal'}/>
         </div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} axes style={{ '.label': { fill: 'black' } }} data={getCurrentPoint(this.props.length,this.props.width,this.props.x)} width={400} height={400} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[0, currentMaxVolume]}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={getCurrentPoint(this.props.length,this.props.width,this.props.x)} width={400} height={400} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[0, currentMaxVolume]}/>
         </div>
       </div>
     )
