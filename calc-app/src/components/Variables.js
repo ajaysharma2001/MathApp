@@ -38,12 +38,15 @@ class Variables extends Component {
   }
   handleCutout = (e) => {
     this.setState({cutoutData: parseInt(e.target.value, 10)});
+    this.props.changeCutout(parseInt(e.target.value, 10));
   }
   handleSheetL = (e) => {
     this.setState({sheetLData: parseInt(e.target.value, 10)});
+    this.props.changeLength(parseInt(e.target.value, 10));
   }
   handleSheetW = (e) => {
     this.setState({sheetWData: parseInt(e.target.value, 10)});
+    this.props.changeWidth(parseInt(e.target.value, 10));
   }
 
   onSliderChangeL = (value) => {
