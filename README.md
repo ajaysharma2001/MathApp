@@ -15,3 +15,6 @@ npm install react-konva konva --save
 
 New Library for 3D model is installed through
 npm install whs
+
+for hosting
+npm install -g firebase-tools
