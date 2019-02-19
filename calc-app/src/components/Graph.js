@@ -22,15 +22,26 @@ function getCurrentPoint(length, width, x) {
   return [arr];
 }
 
+
 class Graph extends Component {
+
+  maxCutout(length, width) {
+    if(length > width) {
+      return width/2;
+    }
+    else {
+      return length /2;
+    }
+  }
+
   render() {
     return (
       <div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={getData(0, 15, 0.1, 30, 60)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={400} height={400} interpolate={'cardinal'}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={getData(0, 15, 0.1, this.props.length, this.props.width)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={400} height={400} interpolate={'cardinal'}/>
         </div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={getCurrentPoint(30,60,5)} width={400} height={400} dataPoints xDomainRange={[0, 15]} yDomainRange={[0, maxVolume]}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 100}} style={{ '.label': { fill: 'black' } }} data={getCurrentPoint(this.props.length,this.props.width,this.props.x)} width={400} height={400} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[0, maxVolume]}/>
         </div>
       </div>
     )
