@@ -95,7 +95,7 @@ const col = {
 }
 
 const checkboxStyle = {
-  marginTop: '450px',
+  marginTop: '605px',
   background: '#f4f4f4',
   padding: '10px',
   borderBottom: '1px #ccc dotted'
