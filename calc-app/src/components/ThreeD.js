@@ -20,6 +20,7 @@ class ThreeScene extends Component{
     this.renderer.setClearColor('#000000')
     this.renderer.setSize(width, height)
     this.mount.appendChild(this.renderer.domElement)
+
     //ADD CUBE
     var geometry = new THREE.BoxGeometry(this.props.BigRedRectangleWidth/100,this.props.BigRedRectangleWidth/100,this.props.BigRedRectangleWidth/100)
     var material = new THREE.MeshBasicMaterial({ color: '#433F81'     })
