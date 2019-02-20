@@ -6,6 +6,28 @@ var currentMaxVolume = 5195.987999999999;
 var currentMinVolume = 0;
 
 class Graph extends Component {
+  constructor() {
+    super();
+    const initialWidth = window.innerWidth > 0 ? window.innerWidth : 600;
+    const initialHeight = window.innerHeight > 0 ? window.innerHeight : 600;
+    this.state = {
+      windowWidth: initialWidth/3.2,
+      windowHeight: initialHeight/3.2 *2
+    };
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize() {
+    this.setState({windowWidth: window.innerWidth/3.2});
+    this.setState({windowHeight: window.innerHeight/3.2 * 2});
+  }
 
   getCurrentPoint(length, width, x) {
     var point = LineChart.data = { x: x, y:(length - 2*x) *(width - 2 *x) *x };
@@ -108,16 +130,16 @@ class Graph extends Component {
     return (
       <div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} style={{ '.label': { fill: 'black' } }} data={this.getData(0, this.maxCutout(this.props.length, this.props.width), 0.1, this.props.length, this.props.width, this.props.showFirstDerivitive, this.props.showSecondDerivitive)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={600} height={600} interpolate={'cardinal'} lineColors={this.getLineColours(this.props.showFirstDerivitive, this.props.showSecondDerivitive)}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} style={{ '.label': { fill: 'black' } }} data={this.getData(0, this.maxCutout(this.props.length, this.props.width), 0.1, this.props.length, this.props.width, this.props.showFirstDerivitive, this.props.showSecondDerivitive)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={this.state.windowWidth} height={this.state.windowHeight} interpolate={'cardinal'} lineColors={this.getLineColours(this.props.showFirstDerivitive, this.props.showSecondDerivitive)}/>
         </div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} data={this.getCurrentPoint(this.props.length,this.props.width,this.props.x)} width={600} height={600} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} data={this.getCurrentPoint(this.props.length,this.props.width,this.props.x)} width={this.state.windowWidth} height={this.state.windowHeight} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
         </div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} data={this.getCurrentPointPrime(this.props.length,this.props.width,this.props.x,this.props.showFirstDerivitive)} width={600} height={600} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} data={this.getCurrentPointPrime(this.props.length,this.props.width,this.props.x,this.props.showFirstDerivitive)} width={this.state.windowWidth} height={this.state.windowHeight} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
         </div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} data={this.getCurrentPointDoublePrime(this.props.length,this.props.width,this.props.x,this.props.showSecondDerivitive)} width={600} height={600} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} data={this.getCurrentPointDoublePrime(this.props.length,this.props.width,this.props.x,this.props.showSecondDerivitive)} width={this.state.windowWidth} height={this.state.windowHeight} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
         </div>
       </div>
     )
