@@ -11,8 +11,8 @@ class Graph extends Component {
     const initialWidth = window.innerWidth > 0 ? window.innerWidth : 600;
     const initialHeight = window.innerHeight > 0 ? window.innerHeight : 600;
     this.state = {
-      windowWidth: initialWidth/3.2,
-      windowHeight: initialHeight/3.2 *2
+      windowWidth: window.innerWidth/3.2,
+      windowHeight: (window.innerHeight >= 600) ? 600 : window.innerHeight - 100
     };
   }
 
@@ -26,7 +26,12 @@ class Graph extends Component {
 
   handleResize() {
     this.setState({windowWidth: window.innerWidth/3.2});
-    this.setState({windowHeight: window.innerHeight/3.2 * 2});
+    if(window.innerHeight <= 700) {
+      this.setState({windowHeight: window.innerHeight - 100});
+    }
+    else {
+      this.setState({windowHeight: 600});
+    }
   }
 
   getCurrentPoint(length, width, x) {

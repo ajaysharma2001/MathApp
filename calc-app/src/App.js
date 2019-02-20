@@ -19,9 +19,27 @@ class App extends Component {
       width: 100,
       x: 10,
       showFirstDerivitive: false,
-      showSecondDerivitive: false
+      showSecondDerivitive: false,
+      margin: (window.innerHeight >= 605) ? 605 : window.innerHeight - 100
     }
   };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  }
+
+  handleResize() {
+    if(window.innerHeight <= 700) {
+      this.setState({margin: window.innerHeight - 100});
+    }
+    else {
+      this.setState({margin: 605});
+    }
+  }
 
   onChangeLength = (value) => {
     this.setState({
@@ -57,7 +75,7 @@ class App extends Component {
             <div style = {col}>
               {/* Where the graph will go */}
               <LineGraph length={this.state.length} width={this.state.width} x={this.state.x} showFirstDerivitive={this.state.showFirstDerivitive} showSecondDerivitive={this.state.showSecondDerivitive} />
-              <div style = {checkboxStyle}>
+              <div style = {checkboxStyle} style = {{ marginTop: this.state.margin }}>
                 <input type="checkbox" onChange={this.onFirstDerivitiveClick}/> {" "}
                   { 'Show First Derivitive' } {"   "}
                 <input type="checkbox" onChange={this.onSecondDerivitiveClick}/> {" "}
@@ -95,7 +113,6 @@ const col = {
 }
 
 const checkboxStyle = {
-  marginTop: '605px',
   background: '#f4f4f4',
   padding: '10px',
   borderBottom: '1px #ccc dotted'
