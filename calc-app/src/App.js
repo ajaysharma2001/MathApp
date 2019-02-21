@@ -11,6 +11,7 @@ import { Stage, Layer, Rect, Text, Circle, Line } from 'react-konva';
 import LineGraph from './components/Graph';
 import ThreeScene from './components/ThreeD';
 
+
 class App extends Component {
   constructor() {
     super();
@@ -82,6 +83,8 @@ class App extends Component {
                   { 'Show Second Derivitive' }
               </div>
             </div>
+          </div>
+          <div style = {rowStyle}>
             <div style = {col}>
               <Sheet BigRedRectangleHeight={this.state.length} BigRedRectangleWidth={this.state.width} SliderValueforCorner={this.state.x}/>
             </div>
@@ -92,11 +95,17 @@ class App extends Component {
 
           </div>
 
+          
 
-
-          <VariablesTitle />
-          <Variables changeLength={this.onChangeLength} changeWidth={this.onChangeWidth} changeCutout={this.onChangeCutout}/>
-          <Footer />
+          <div style = {backgroundStyle}></div>
+          <div style = {inputStyle}>
+            <VariablesTitle />
+            <Variables changeLength={this.onChangeLength} changeWidth={this.onChangeWidth} changeCutout={this.onChangeCutout}/>
+            <Footer />
+          </div>
+          
+          
+          
       </div>
     );
   }
@@ -108,8 +117,10 @@ const rowStyle = {
 }
 const col = {
   textAlign: 'center',
-  width: '33.3333%',
+  width: '50%',
   marginTop: '20px',
+  display: 'flex',
+  justifyContent: 'center',
 }
 
 const checkboxStyle = {
@@ -117,4 +128,22 @@ const checkboxStyle = {
   padding: '10px',
   borderBottom: '1px #ccc dotted'
 }
+
+const inputStyle = {
+  position: 'fixed',
+  bottom: '0%',
+  right: '0%',
+  left: '0%',
+}
+
+const backgroundStyle = {
+  position: 'fixed',
+  bottom: '0%',
+  right: '0%',
+  left: '0%',
+  top: '75%',
+  backgroundColor: 'rgba(249,250,252, 0.8)',
+  filter: 'blur(15px)'
+}
+
 export default App;

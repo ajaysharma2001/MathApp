@@ -135,16 +135,16 @@ class Graph extends Component {
     return (
       <div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} style={{ '.label': { fill: 'black' } }} data={this.getData(0, this.maxCutout(this.props.length, this.props.width), 0.1, this.props.length, this.props.width, this.props.showFirstDerivitive, this.props.showSecondDerivitive)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={this.state.windowWidth} height={this.state.windowHeight} interpolate={'cardinal'} lineColors={this.getLineColours(this.props.showFirstDerivitive, this.props.showSecondDerivitive)}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 60}} style={{ '.label': { fill: 'black' } }} data={this.getData(0, this.maxCutout(this.props.length, this.props.width), 0.1, this.props.length, this.props.width, this.props.showFirstDerivitive, this.props.showSecondDerivitive)} axes grid verticalGrid axisLabels={{x: 'Cutout Size', y: 'Volume'}} width={this.state.windowWidth} height={this.state.windowHeight} interpolate={'cardinal'} lineColors={this.getLineColours(this.props.showFirstDerivitive, this.props.showSecondDerivitive)}/>
         </div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} data={this.getCurrentPoint(this.props.length,this.props.width,this.props.x)} width={this.state.windowWidth} height={this.state.windowHeight} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 60}} data={this.getCurrentPoint(this.props.length,this.props.width,this.props.x)} width={this.state.windowWidth} height={this.state.windowHeight} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
         </div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} data={this.getCurrentPointPrime(this.props.length,this.props.width,this.props.x,this.props.showFirstDerivitive)} width={this.state.windowWidth} height={this.state.windowHeight} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 60}} data={this.getCurrentPointPrime(this.props.length,this.props.width,this.props.x,this.props.showFirstDerivitive)} width={this.state.windowWidth} height={this.state.windowHeight} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
         </div>
         <div style = {overlap}>
-          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 75}} data={this.getCurrentPointDoublePrime(this.props.length,this.props.width,this.props.x,this.props.showSecondDerivitive)} width={this.state.windowWidth} height={this.state.windowHeight} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
+          <LineChart margin={{top: 10, right: 10, bottom: 50, left: 60}} data={this.getCurrentPointDoublePrime(this.props.length,this.props.width,this.props.x,this.props.showSecondDerivitive)} width={this.state.windowWidth} height={this.state.windowHeight} dataPoints xDomainRange={[0, this.maxCutout(this.props.length, this.props.width)]} yDomainRange={[currentMinVolume, currentMaxVolume]}/>
         </div>
       </div>
     )
@@ -154,10 +154,7 @@ export default Graph;
 
 const overlap = {
   position: 'absolute',
-  marginLeft: '1%'
-}
-
-const onTop = {
-  marginLeft: '1%'
+  marginLeft: '1%',
+  transform: 'translate(-25%, 0px)' 
 }
 
