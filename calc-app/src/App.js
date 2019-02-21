@@ -121,6 +121,9 @@ const col = {
   marginTop: '20px',
   display: 'flex',
   justifyContent: 'center',
+  borderWidth: '3px',
+  borderStyle: 'outset',
+  borderRadius: '10px'
 }
 
 const checkboxStyle = {
@@ -141,8 +144,8 @@ const backgroundStyle = {
   bottom: '0%',
   right: '0%',
   left: '0%',
-  top: '75%',
-  backgroundColor: 'rgba(249,250,252, 0.8)',
+  height: '250px',
+  backgroundColor: 'rgba(249,250,252, 0.9)',
   filter: 'blur(15px)'
 }
 
