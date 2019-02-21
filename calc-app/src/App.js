@@ -9,7 +9,7 @@ import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Rect, Text, Circle, Line } from 'react-konva';
 import LineGraph from './components/Graph';
-import ThreeScene from './components/ThreeD';
+import Prism from './components/ThreeD';
 
 
 class App extends Component {
@@ -90,12 +90,12 @@ class App extends Component {
             </div>
             <div style = {col}>
               {/* Where the 3D display will go */}
-              <ThreeScene BigRedRectangleHeight={this.state.length} BigRedRectangleWidth={this.state.width} SliderValueforCorner={this.state.x}/>
+              <Prism BigRedRectangleHeight={this.state.length} BigRedRectangleWidth={this.state.width} SliderValueforCorner={this.state.x}/>
             </div>
 
           </div>
 
-          
+
 
           <div style = {backgroundStyle}></div>
           <div style = {inputStyle}>
@@ -103,9 +103,9 @@ class App extends Component {
             <Variables changeLength={this.onChangeLength} changeWidth={this.onChangeWidth} changeCutout={this.onChangeCutout}/>
             <Footer />
           </div>
-          
-          
-          
+
+
+
       </div>
     );
   }
