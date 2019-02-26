@@ -7,8 +7,10 @@ class Tables extends Component {
 
     getData(length, width) {
         var data = [];
-        for (var i = 0; i <= this.maxCutout(length, width); i += this.maxCutout(length, width) / 10) {
-            let point = { 'x': i, 'f(x)': (length - 2 * i) * (width - 2 * i) * i, "f '(x)": (12 * i * i) + (-4 * width - 4 * length) * i + length * width, "f ''(x)": 4 * (6 * i - width - length) };
+        let maxCutout = this.maxCutout(length, width)
+        for (var i = 0; i <= maxCutout + maxCutout / 11; i += maxCutout / 10) {
+            let x = Math.round(i * 1000) / 1000
+            let point = { 'x': x, 'f(x)': Math.round(((length - 2 * i) * (width - 2 * i) * i) * 1000) / 1000, "f '(x)": Math.round(((12 * i * i) + (-4 * width - 4 * length) * i + length * width) * 1000) / 1000, "f ''(x)": Math.round((4 * (6 * i - width - length)) * 1000) / 1000 };
             data.push(point);
         }
         return data
@@ -18,7 +20,7 @@ class Tables extends Component {
         var col = [{
             Header: 'x',
             accessor: 'x',
-            width: 50
+            width: 75
         }, {
             Header: 'f(x)',
             accessor: 'f(x)',
