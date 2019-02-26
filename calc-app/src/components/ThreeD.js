@@ -31,9 +31,9 @@ render() {
       <Rect
         x={window.innerWidth/12+(0.70710*this.props.SliderValueforCorner)}
         y={window.innerHeight/12+(0.70710*this.props.SliderValueforCorner)}
-        width={this.props.BigRedRectangleWidth- 2*this.props.SliderValueforCorner}
-        height={this.props.BigRedRectangleHeight- 2*this.props.SliderValueforCorner}
-        fill="Black"
+        width={this.props.BigRedRectangleHeight- 2*this.props.SliderValueforCorner}
+        height={this.props.BigRedRectangleWidth- 2*this.props.SliderValueforCorner}
+        fill="Green"
         shadowBlur={0}
       />
     </Layer>
