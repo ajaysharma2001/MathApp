@@ -8,39 +8,53 @@ class Tables extends Component {
     getData(length, width) {
         var data = [];
         for (var i = 0; i <= this.maxCutout(length, width); i += this.maxCutout(length, width) / 10) {
-            let point = { 'x': i, 'f(x)': (length - 2 * i) * (width - 2 * i) * i };
+            let point = { 'x': i, 'f(x)': (length - 2 * i) * (width - 2 * i) * i, "f '(x)": (12 * i * i) + (-4 * width - 4 * length) * i + length * width, "f ''(x)": 4 * (6 * i - width - length) };
             data.push(point);
         }
         return data
     }
-    getDataPrime(length, width) {
-        var data = [];
-        for (var i = 0; i <= this.maxCutout(length, width); i += this.maxCutout(length, width) / 10) {
-            let point = { 'x': i, "f '(x)": (12 * i * i) + (-4 * width - 4 * length) * i + length * width };
-            data.push(point);
+
+    getColumn(primeOn, doublePrimeOn) {
+        var col = [{
+            Header: 'x',
+            accessor: 'x',
+            width: 50
+        }, {
+            Header: 'f(x)',
+            accessor: 'f(x)',
+            width: this.getColumnWidth(this.props.showFirstDerivitive, this.props.showSecondDerivitive)
+        }];
+        if (primeOn) {
+            col.push(
+                {
+                    Header: "f '(x)",
+                    accessor: "f '(x)",
+                    width: this.getColumnWidth(this.props.showFirstDerivitive, this.props.showSecondDerivitive)
+                }
+            );
         }
-        return data
-    }
-    getDataDoublePrime(length, width) {
-        var data = [];
-        for (var i = 0; i <= this.maxCutout(length, width); i += this.maxCutout(length, width) / 10) {
-            let point = { 'x': i, "f ''(x)": 4 * (6 * i - width - length) };
-            data.push(point);
+        if (doublePrimeOn) {
+            col.push(
+                {
+                    Header: "f ''(x)",
+                    accessor: "f ''(x)",
+                    width: this.getColumnWidth(this.props.showFirstDerivitive, this.props.showSecondDerivitive)
+                }
+            );
         }
-        return data
+        return col;
     }
-    hidePrime(primeOn) {
-        if (!primeOn) {
-            return hide
+
+    getColumnWidth(primeOn, doublePrimeOn) {
+        if(!primeOn && !doublePrimeOn) {
+            return window.innerWidth / 2.5
         }
-        return col
-    }
-    hideDoublePrime(doublePrimeOn) {
-        if (!doublePrimeOn) {
-            return hide
+        if((!primeOn && doublePrimeOn) || (primeOn && !doublePrimeOn)) {
+            return window.innerWidth / 5
         }
-        return col
+        return window.innerWidth / 7.5
     }
+
     maxCutout(length, width) {
         if (length > width) {
             return width / 2;
@@ -56,35 +70,14 @@ class Tables extends Component {
             minRows: 11,
             showPagination: false,
         });
-
-        const columns = [{
-            Header: 'x',
-            accessor: 'x',
-            width: window.innerWidth/15
-        }, {
-            Header: 'f(x)',
-            accessor: 'f(x)',
-            width: window.innerWidth/15
-        }]
-        const columnsPrime = [{
-            Header: 'x',
-            accessor: 'x',
-            width: window.innerWidth/15
-        }, {
-            Header: "f '(x)",
-            accessor: "f '(x)",
-            width: window.innerWidth/15
-        }]
-        const columnsDoublePrime = [{
-            Header: 'x',
-            accessor: 'x',
-            width: window.innerWidth/15
-        }, {
-            Header: "f ''(x)",
-            accessor: "f ''(x)",
-            width: window.innerWidth/15
-        }]
         return (
+            <div style={col}>
+                <ReactTable
+                    columns={this.getColumn(this.props.showFirstDerivitive, this.props.showSecondDerivitive)}
+                    data={this.getData(this.props.length, this.props.width)}
+                ></ReactTable>
+            </div>
+            /*
             <div style={rowStyle}>
                 <div style={col}>
                     <ReactTable
@@ -106,16 +99,12 @@ class Tables extends Component {
                 </div>
 
             </div>
+            */
         );
     }
 }
 
 export default Tables;
-
-const rowStyle = {
-    display: 'flex',
-    flexDirection: 'row'
-}
 
 const col = {
     width: '50%',
@@ -125,8 +114,4 @@ const col = {
     marginRight: '10px',
     display: 'flex',
     justifyContent: 'center',
-}
-
-const hide = {
-    display: 'none'
 }
