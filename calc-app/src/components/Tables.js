@@ -24,14 +24,16 @@ class Tables extends Component {
         }, {
             Header: 'f(x)',
             accessor: 'f(x)',
-            width: this.getColumnWidth(this.props.showFirstDerivitive, this.props.showSecondDerivitive)
+            width: this.getColumnWidth(this.props.showFirstDerivitive, this.props.showSecondDerivitive),
+            headerClassName: 'originalFunction'
         }];
         if (primeOn) {
             col.push(
                 {
                     Header: "f '(x)",
                     accessor: "f '(x)",
-                    width: this.getColumnWidth(this.props.showFirstDerivitive, this.props.showSecondDerivitive)
+                    width: this.getColumnWidth(this.props.showFirstDerivitive, this.props.showSecondDerivitive),
+                    headerClassName: 'primeFunction'
                 }
             );
         }
@@ -40,7 +42,8 @@ class Tables extends Component {
                 {
                     Header: "f ''(x)",
                     accessor: "f ''(x)",
-                    width: this.getColumnWidth(this.props.showFirstDerivitive, this.props.showSecondDerivitive)
+                    width: this.getColumnWidth(this.props.showFirstDerivitive, this.props.showSecondDerivitive),
+                    headerClassName: 'doublePrimeFunction'
                 }
             );
         }
@@ -77,6 +80,7 @@ class Tables extends Component {
                 <ReactTable
                     columns={this.getColumn(this.props.showFirstDerivitive, this.props.showSecondDerivitive)}
                     data={this.getData(this.props.length, this.props.width)}
+                    className={'-highlight'}
                 ></ReactTable>
             </div>
             /*

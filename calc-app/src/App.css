@@ -17,3 +17,15 @@ a {
 html {
   background-color: #f9fafc;
 }
+
+.originalFunction {
+  color: blue;
+}
+
+.primeFunction {
+  color: red;
+}
+
+.doublePrimeFunction {
+  color: green;
+}
