@@ -54,29 +54,35 @@ class Tables extends Component {
         Object.assign(ReactTableDefaults, {
             defaultPageSize: 11,
             minRows: 11,
-            showPagination: false
+            showPagination: false,
         });
 
         const columns = [{
             Header: 'x',
-            accessor: 'x'
+            accessor: 'x',
+            width: window.innerWidth/15
         }, {
             Header: 'f(x)',
-            accessor: 'f(x)'
+            accessor: 'f(x)',
+            width: window.innerWidth/15
         }]
         const columnsPrime = [{
             Header: 'x',
-            accessor: 'x'
+            accessor: 'x',
+            width: window.innerWidth/15
         }, {
             Header: "f '(x)",
-            accessor: "f '(x)"
+            accessor: "f '(x)",
+            width: window.innerWidth/15
         }]
         const columnsDoublePrime = [{
             Header: 'x',
-            accessor: 'x'
+            accessor: 'x',
+            width: window.innerWidth/15
         }, {
             Header: "f ''(x)",
-            accessor: "f ''(x)"
+            accessor: "f ''(x)",
+            width: window.innerWidth/15
         }]
         return (
             <div style={rowStyle}>
@@ -112,7 +118,6 @@ const rowStyle = {
 }
 
 const col = {
-    textAlign: 'center',
     width: '50%',
     marginTop: '20px',
     marginBottom: '20px',
