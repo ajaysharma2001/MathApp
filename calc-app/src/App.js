@@ -10,7 +10,7 @@ import { render } from 'react-dom';
 import { Stage, Layer, Rect, Text, Circle, Line } from 'react-konva';
 import LineGraph from './components/Graph';
 import Prism from './components/ThreeD';
-
+import Tables from './components/Tables';
 
 class App extends Component {
   constructor() {
@@ -82,6 +82,9 @@ class App extends Component {
                 <input type="checkbox" onChange={this.onSecondDerivitiveClick}/> {" "}
                   { 'Show Second Derivitive' }
               </div>
+            </div>
+            <div style = {col}>
+              <Tables length={this.state.length} width={this.state.width} showFirstDerivitive={this.state.showFirstDerivitive} showSecondDerivitive={this.state.showSecondDerivitive}/>
             </div>
           </div>
           <div style = {rowStyle}>

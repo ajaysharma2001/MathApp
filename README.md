@@ -18,3 +18,6 @@ npm install whs
 
 for hosting
 npm install -g firebase-tools
+
+for the table
+npm install react-table
