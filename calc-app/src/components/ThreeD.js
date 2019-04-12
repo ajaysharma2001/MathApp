@@ -11,7 +11,15 @@ import Tooltip from 'rc-tooltip';
 import Variables from './Variables'
 
 class Prism extends Component{
-
+  constructor() {
+    super();
+    console.log('hi')
+    //setTimeout(test(), 10000);
+  };
+//test(){
+  //this.forceUpdate()
+//}
+/*
 render() {
   return(
     <p style = {col}>
@@ -59,9 +67,21 @@ const col = {
     borderColor: '#d6d7da',
     marginBottom: '100px'
   }
+*/
 
-/*
-class ThreeScene extends Component{
+/*class ThreeScene extends Component{*/
+currentHeight(){
+  var m = this.props.BigRedRectangleHeight - 2*this.props.SliderValueforCorner
+  return m/100;
+}
+currentWidth(){
+  var m = this.props.BigRedRectangleWidth - 2*this.props.SliderValueforCorner
+  return m/100;
+}
+currentZ(){
+  return this.props.SliderValueforCorner/10;
+}
+
   componentDidMount(){
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
@@ -77,13 +97,17 @@ class ThreeScene extends Component{
     this.camera.position.z = 4
     //ADD RENDERER
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
-    this.renderer.setClearColor('#000000')
+    this.renderer.setClearColor('#f9fafc')
     this.renderer.setSize(width, height)
     this.mount.appendChild(this.renderer.domElement)
 
     //ADD CUBE
-    var geometry = new THREE.BoxGeometry(this.props.BigRedRectangleWidth/100,this.props.BigRedRectangleWidth/100,this.props.BigRedRectangleWidth/100)
-    var material = new THREE.MeshBasicMaterial({ color: '#433F81'     })
+    var geometry = new THREE.BoxGeometry(this.props.BigRedRectangleHeight/100,this.props.BigRedRectangleWidth/100,this.props.SliderValueforCorner/100)
+    var material = new THREE.MeshBasicMaterial({ color: '#FF0000'     })
+  /*  var lineGeometry = new THREE.EdgesGeometry(this.geometry)
+    var lineMaterial = new THREE.LineBasicMaterial({ color:0xffff00, linewidth : 2     })
+    var edges = new THREE.LineSegments(lineGeometry,lineMaterial)*/
+
     this.cube = new THREE.Mesh(geometry, material)
     this.scene.add(this.cube)
 
@@ -103,10 +127,13 @@ stop = () => {
     cancelAnimationFrame(this.frameId)
   }
 animate = () => {
-   this.cube.rotation.x += 0.01
-   this.cube.rotation.y += 0.01
    this.renderScene()
    this.frameId = window.requestAnimationFrame(this.animate)
+   this.cube.scale.x = this.currentHeight()
+   this.cube.scale.y = this.currentWidth()
+   this.cube.scale.z = this.currentZ()
+   this.cube.rotation.x = 20
+   //this.cube.scale.x += 0.01
  }
 renderScene = () => {
   this.renderer.render(this.scene, this.camera)
@@ -114,12 +141,10 @@ renderScene = () => {
 render(){
     return(
       <div
-        style={{ width: '400px', height: '400px' }}
+        style={{ width: '500px', height: '500px' }}
         ref={(mount) => { this.mount = mount }}
       />
     )
   }
 }
-export default ThreeScene
-/}
-*/
+export default Prism
