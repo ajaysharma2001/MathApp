@@ -1,4 +1,7 @@
 # MathApp
+
+CHECK OUT THE SITE HERE: https://math-app-407d2.web.app/
+
 USE THIS COMMAND TO INSTALL SLIDERS and shapes AND MAKE SURE YOU ARE IN THE RIGHT DIRECTORY 
 npm install --save rc-slider
 npm install react-konva konva --save
