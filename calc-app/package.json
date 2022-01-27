@@ -11,7 +11,7 @@
     "react-konva": "^16.8.2-0",
     "react-scripts": "2.1.5",
     "react-table": "^6.9.2",
-    "three": "^0.101.1",
+    "three": "^0.137.0",
     "three-full": "^11.3.2",
     "whs": "^2.1.9"
   },
